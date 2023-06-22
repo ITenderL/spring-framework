@@ -1,7 +1,13 @@
 pluginManagement {
 	repositories {
+		mavenLocal()
+		maven { url 'https://maven.aliyun.com/repository/public/' }
+		maven { url 'https://maven.aliyun.com/repository/jcenter/' }
+		maven { url 'https://maven.aliyun.com/repository/google/' }
+		maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+		maven { url 'https://jitpack.io/' }
+		mavenCentral()
 		gradlePluginPortal()
-		maven { url 'https://repo.spring.io/plugins-release' }
 	}
 }
 apply from: "$rootDir/gradle/build-cache-settings.gradle"
@@ -36,3 +42,5 @@ rootProject.name = "spring"
 rootProject.children.each {project ->
 	project.buildFileName = "${project.name}.gradle"
 }
+include 'spring-debug'
+

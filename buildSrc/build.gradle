@@ -3,9 +3,16 @@ plugins {
 }
 
 repositories {
+	mavenLocal()
+	maven { url 'https://maven.aliyun.com/repository/public/' }
+	maven { url 'https://maven.aliyun.com/repository/jcenter/' }
+	maven { url 'https://maven.aliyun.com/repository/google/' }
+	maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+	maven { url 'https://jitpack.io/' }
 	mavenCentral()
 	gradlePluginPortal()
 }
+
 
 dependencies {
 	implementation "me.champeau.gradle:japicmp-gradle-plugin:0.2.8"

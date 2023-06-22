@@ -277,8 +277,15 @@ configure(allprojects) { project ->
 			cacheChangingModulesFor 0, "seconds"
 		}
 		repositories {
+			mavenLocal()
+			maven { url 'https://maven.aliyun.com/repository/public/' }
+			maven { url 'https://maven.aliyun.com/repository/jcenter/' }
+			maven { url 'https://maven.aliyun.com/repository/google/' }
+			maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+			maven { url "https://maven.aliyun.com/repository/spring-plugin" }
+			maven { url 'https://jitpack.io/' }
 			mavenCentral()
-			maven { url "https://repo.spring.io/libs-spring-framework-build" }
+			gradlePluginPortal()
 		}
 	}
 	configurations.all {
@@ -291,7 +298,6 @@ configure(allprojects) { project ->
 
 configure([rootProject] + javaProjects) { project ->
 	group = "org.springframework"
-
 	apply plugin: "java"
 	apply plugin: "java-test-fixtures"
 	apply plugin: "checkstyle"
