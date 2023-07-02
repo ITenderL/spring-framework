@@ -220,6 +220,7 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
 		if (resourceLoader instanceof ResourcePatternResolver) {
 			// Resource pattern matching available.
 			try {
+				// 调用defaultResourceLoader的getResource完成具体的resource定位
 				Resource[] resources = ((ResourcePatternResolver) resourceLoader).getResources(location);
 				int count = loadBeanDefinitions(resources);
 				if (actualResources != null) {
@@ -252,6 +253,7 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
 	@Override
 	public int loadBeanDefinitions(String... locations) throws BeanDefinitionStoreException {
 		Assert.notNull(locations, "Location array must not be null");
+		// 循环遍历处理没一个资源
 		int count = 0;
 		for (String location : locations) {
 			count += loadBeanDefinitions(location);
